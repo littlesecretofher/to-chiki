@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,133 +6,189 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>To Chiki ♡</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+ --pink:#e9a3b8;
+ --rose:#b95f80;
+ --cream:#fffaf6;
+ --text:#76505d;
+ --pale:#fff0f4;
 }
 
-body {
-  font-family: 'Trebuchet MS', sans-serif;
-  background: linear-gradient(135deg, #ffe5f0, #fff1f7, #ffd3e6);
-  color: #873d62;
-  min-height: 100vh;
-  overflow-x: hidden;
+body{
+ background:#fae9ec;
+ background-image:radial-gradient(#e8b5c3 1px,transparent 1px);
+ background-size:24px 24px;
+ color:var(--text);
+ font-family:'DM Sans',sans-serif;
+ min-height:100vh;
+ padding:25px 12px;
 }
 
-.container {
-  width: 90%;
-  max-width: 650px;
-  margin: 40px auto;
-  padding: 30px 22px;
-  background: rgba(255,255,255,0.85);
-  border-radius: 25px;
-  box-shadow: 0 10px 35px rgba(200,80,130,0.15);
-  text-align: center;
+.container{
+ max-width:680px;
+ margin:auto;
+ background:rgba(255,250,246,.96);
+ border:5px solid white;
+ border-radius:12px;
+ padding:25px 20px;
+ box-shadow:0 12px 35px #a76b7c20;
+ text-align:center;
 }
 
-h1 {
-  color: #e45b9b;
-  font-size: 42px;
-  margin: 20px 0;
+.bow{font-size:34px;margin:12px}
+
+.ribbon{
+ background:linear-gradient(120deg,#d987a3,#f0bac9,#d987a3);
+ color:white;
+ padding:18px 5px;
+ margin:28px 8px;
+ position:relative;
+ font-family:'Playfair Display',serif;
+ font-size:38px;
+ letter-spacing:5px;
+ box-shadow:0 5px 12px #bd819233;
 }
 
-h2 {
-  color: #d94f8c;
-  margin: 20px 0;
+.ribbon:before,.ribbon:after{
+ content:"";
+ position:absolute;
+ top:0;
+ height:100%;
+ width:28px;
+ background:#c77d97;
+ z-index:-1;
 }
 
-p {
-  font-size: 17px;
-  line-height: 1.8;
-  margin: 15px 0;
+.ribbon:before{
+ left:-18px;
+ clip-path:polygon(100% 0,100% 100%,0 50%);
 }
 
-.heart {
-  font-size: 35px;
-  animation: beat 1.3s infinite;
+.ribbon:after{
+ right:-18px;
+ clip-path:polygon(0 0,100% 50%,0 100%);
 }
 
-@keyframes beat {
-  50% { transform: scale(1.2); }
+.ribbon small{
+ display:block;
+ font:10px 'DM Sans',sans-serif;
+ letter-spacing:4px;
+ margin-top:5px;
 }
 
-button {
-  background: #f48bb9;
-  color: white;
-  border: none;
-  padding: 13px 23px;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 9px;
-  transition: 0.2s;
+h1,h2{
+ color:var(--rose);
+ font-family:'Playfair Display',serif;
 }
 
-button:hover {
-  background: #e45b9b;
-  transform: scale(1.04);
+h1{font-size:clamp(32px,7vw,45px);margin:18px 0}
+h2{font-size:29px;margin:20px 0}
+
+p{line-height:1.9;font-size:15px;margin:13px 0}
+
+.italic{
+ font-family:'Playfair Display',serif;
+ font-style:italic;
+ font-size:18px;
 }
 
-.page {
-  display: none;
-  animation: appear 0.6s ease;
+.page{display:none}
+.page.active{display:block;animation:show .55s ease}
+
+@keyframes show{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}
 }
 
-.page.active {
-  display: block;
+button{
+ border:none;
+ border-radius:30px;
+ padding:13px 23px;
+ margin:10px 4px;
+ background:#dfa0b4;
+ color:white;
+ font-weight:bold;
+ font-size:14px;
+ cursor:pointer;
+ transition:.2s;
 }
 
-@keyframes appear {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+button:hover{background:#bd718e;transform:translateY(-2px)}
+button:focus-visible{outline:3px solid #96516c;outline-offset:3px}
+
+.box{
+ background:#fff1f4;
+ border:1px solid #f0d0da;
+ border-radius:16px;
+ padding:22px;
+ margin:22px 0;
+ text-align:left;
 }
 
-.photo {
-  width: 85%;
-  max-width: 330px;
-  height: 370px;
-  object-fit: cover;
-  border-radius: 22px;
-  border: 6px solid #ffe0ed;
-  margin: 20px auto;
-  display: block;
+.photo-frame{
+ background:white;
+ padding:12px 12px 35px;
+ width:min(90%,350px);
+ margin:25px auto;
+ box-shadow:0 5px 20px #9d647533;
+ transform:rotate(-2deg);
 }
 
-.message {
-  background: #fff0f6;
-  padding: 22px;
-  border-radius: 20px;
-  margin: 20px 0;
-  line-height: 1.8;
+.photo-frame img{
+ width:100%;
+ height:350px;
+ object-fit:cover;
+ display:block;
 }
 
-.choice {
-  display: block;
-  width: 100%;
-  max-width: 420px;
-  margin: 12px auto;
-  background: #ffe0ed;
-  color: #a34070;
+.caption{
+ font-family:'Playfair Display',serif;
+ font-style:italic;
+ margin-top:12px;
 }
 
-#storyReply {
-  min-height: 55px;
-  font-weight: bold;
-  color: #cf4d88;
+.choices{
+ display:grid;
+ gap:12px;
+ margin:22px auto;
+ max-width:430px;
 }
 
-.small {
-  font-size: 13px;
-  color: #bd7598;
+.choices button{
+ width:100%;
+ margin:0;
+ background:#f7dfe7;
+ color:#845366;
 }
 
-footer {
-  margin-top: 25px;
-  font-size: 13px;
-  color: #c17b9e;
+.choices button:hover{background:#edc2d2}
+
+.result{
+ background:#fff1f5;
+ padding:20px;
+ border-radius:15px;
+ margin:20px 0;
+}
+
+.small{font-size:12px;color:#b27d90}
+.footer{margin-top:28px;font-size:12px;color:#b98b9a}
+
+.floating{
+ position:fixed;
+ bottom:-30px;
+ pointer-events:none;
+ animation:float 9s linear infinite;
+ opacity:.6;
+ z-index:-1;
+}
+
+@keyframes float{
+ to{transform:translateY(-110vh) rotate(50deg);opacity:0}
 }
 
 </style>
@@ -139,90 +196,371 @@ footer {
 
 <body>
 
+<div id="floatingHearts"></div>
+
 <div class="container">
 
-<!-- PAGE 1: WELCOME -->
+<!-- WELCOME -->
+<section class="page active" id="p1">
 
-<section class="page active" id="page1">
+<div class="bow">୨ৎ ♡ ୨ৎ</div>
 
-<div class="heart">💗</div>
+<div class="ribbon">
+TO CHIKI
+<small>A LITTLE SURPRISE FOR YOU</small>
+</div>
 
-<h1>To CHIKI</h1>
+<p class="italic">From Gadho ♡</p>
 
-<p style="font-size:20px;">
-From Gadho, who wants to say something to Chiki...
+<h1>Hey, Chiki! 🌷</h1>
+
+<p>
+Someone has made a little corner of the internet
+just for you.
 </p>
 
 <p>
-Hey Chiki! 🌷<br>
-I made a little something for you.
+It's filled with a few words, some memories
+and a tiny surprise.
 </p>
 
-<p>
-It's not something very big, but I hope it makes you smile.
-</p>
+<p class="italic">Are you ready? 🎀</p>
 
-<button onclick="showPage('page2')">
-Open your surprise 💌
-</button>
+<button onclick="go(2)">OPEN YOUR SURPRISE ♡</button>
 
 </section>
 
 
-<!-- PAGE 2: ABOUT HER -->
+<!-- ABOUT HER -->
+<section class="page" id="p2">
 
-<section class="page" id="page2">
+<div class="bow">🌸</div>
+<h1>First, a little about you</h1>
 
-<h1>A little something about you 🌸</h1>
+<p class="italic">Things that make you special.</p>
 
-<div class="message">
+<div class="box">
 
 <p>
-Chiki, honestly, you're such a cute person.
-I really like your personality and the way you are.
+Chiki, you're honestly such a cute person.
+I really like your personality and the way
+you carry yourself.
 </p>
 
 <p>
-And one thing I especially like is your immature side.
-The silly things you do, your little childish moments
-and the way you make things fun — I genuinely find
-those things adorable.
+And one thing I especially love is your
+immature side. Your silly behaviour, your
+childish moments and those random things
+you do — I find them genuinely adorable.
 </p>
 
 <p>
-You don't always have to be mature or serious.
-I like that playful side of yours too.
-It's one of the things that makes you special.
+I like that you don't always have to be
+serious or mature. Your playful side is
+one of the things that makes you YOU.
 </p>
 
 <p>
-I just wanted you to know that you're appreciated
-more than you probably realise. 💗
+I hope you never lose that little childish
+spark because it's really special. ♡
 </p>
 
 </div>
 
-<button onclick="showPage('page3')">
-There's more... 🎀
-</button>
+<button onclick="go(3)">A LITTLE MORE... 💌</button>
 
 </section>
 
 
-<!-- PAGE 3: HER PHOTO -->
+<!-- PHOTO -->
+<section class="page" id="p3">
 
-<section class="page" id="page3">
+<div class="bow">🎀</div>
+<h1>A little picture of you</h1>
 
-<h1>My favourite Chiki ♡</h1>
+<p>Because this space belongs to Chiki. ♡</p>
 
-<p>
-Here's a little space dedicated to you.
+<div class="photo-frame">
+<img src="chiki.jpg" alt="Chiki's photo">
+<div class="caption">One of a kind ♡</div>
+</div>
+
+<p class="small">
+A little picture, a little memory, a little smile.
 </p>
 
-<img
-src="chiki.jpg"
-alt="A picture of Chiki"
-class="photo"
->
+<button onclick="go(4)">READ MY MESSAGE 💗</button>
 
-<p
+</section>
+
+
+<!-- PERSONAL MESSAGE -->
+<section class="page" id="p4">
+
+<div class="bow">💗</div>
+<h1>Something from Gadho</h1>
+
+<div class="box">
+
+<p>
+Chiki, I don't know how to explain it perfectly,
+but there's something about you that makes
+you really special to me.
+</p>
+
+<p>
+I like your personality, your cute little
+habits and even the immature side of you.
+Sometimes the smallest things you do can
+make someone's day better.
+</p>
+
+<p>
+I made this little website because I wanted
+to tell you that I appreciate you.
+You deserve happiness, kindness and
+all the beautiful things in life.
+</p>
+
+<p class="italic" style="text-align:center">
+Never stop being your adorable self. ♡
+</p>
+
+</div>
+
+<button onclick="go(5)">LET'S PLAY A GAME 🎀</button>
+
+</section>
+
+
+<!-- STORY INTRO -->
+<section class="page" id="p5">
+
+<div class="bow">🦋</div>
+<h1>A tiny little story</h1>
+
+<p class="italic">The story of a girl named Chiki...</p>
+
+<div class="box">
+
+<p>
+Once upon a time, a girl named Chiki
+received a mysterious pink envelope.
+</p>
+
+<p>
+There was a little ribbon attached to it
+and three tiny stars drawn on the back.
+</p>
+
+<p>
+Inside, she found a message:
+</p>
+
+<p class="italic" style="text-align:center">
+"Your choices will lead you to a little
+surprise. Ready to find it?"
+</p>
+
+</div>
+
+<button onclick="go(6)">START THE STORY ✨</button>
+
+</section>
+
+
+<!-- CHOICE 1 -->
+<section class="page" id="p6">
+
+<h2>Chapter 1 🌷</h2>
+
+<p>
+Chiki finds a magical pink door.
+What does she do?
+</p>
+
+<div class="choices">
+<button onclick="answer(1,'She opens the door slowly.')">
+Open the door slowly 🚪
+</button>
+
+<button onclick="answer(1,'She knocks three times.')">
+Knock three times 🎀
+</button>
+
+<button onclick="answer(1,'She looks for a secret key.')">
+Search for a secret key 🔑
+</button>
+</div>
+
+<div id="r1" class="result" hidden></div>
+
+</section>
+
+
+<!-- CHOICE 2 -->
+<section class="page" id="p7">
+
+<h2>Chapter 2 🦋</h2>
+
+<p>
+Inside, Chiki finds a beautiful garden.
+What should she explore?
+</p>
+
+<div class="choices">
+<button onclick="answer(2,'She follows the butterflies.')">
+Follow the butterflies 🦋
+</button>
+
+<button onclick="answer(2,'She visits the flower garden.')">
+Visit the flower garden 🌸
+</button>
+
+<button onclick="answer(2,'She searches for a secret box.')">
+Find a secret box 🎁
+</button>
+</div>
+
+<div id="r2" class="result" hidden></div>
+
+</section>
+
+
+<!-- CHOICE 3 -->
+<section class="page" id="p8">
+
+<h2>Chapter 3 💌</h2>
+
+<p>
+At the end of the garden, she finds
+a little pink box. What's inside?
+</p>
+
+<div class="choices">
+<button onclick="answer(3,'A beautiful letter.')">
+A beautiful letter 💌
+</button>
+
+<button onclick="answer(3,'A tiny pink teddy bear.')">
+A tiny teddy bear 🧸
+</button>
+
+<button onclick="answer(3,'A magical little star.')">
+A magical star ⭐
+</button>
+</div>
+
+<div id="r3" class="result" hidden></div>
+
+</section>
+
+
+<!-- ENDING -->
+<section class="page" id="p9">
+
+<div class="bow">🎀 ♡ 🎀</div>
+
+<h1>Surprise, Chiki!</h1>
+
+<div class="box">
+
+<p>
+No matter which choices you made,
+the ending was always going to be special.
+</p>
+
+<p>
+Because the real surprise is simply this:
+someone thinks you're an amazing person.
+</p>
+
+<p>
+Your cute personality, your silly side,
+your immature moments and your smile
+make you special in your own way.
+</p>
+
+<p class="italic" style="text-align:center">
+You deserve all the happiness in the world. ♡
+</p>
+
+</div>
+
+<h2>With love and appreciation,</h2>
+<h1>Gadho ♡</h1>
+
+<p class="small">Hope I made you smile today.</p>
+
+<button onclick="go(1)">READ AGAIN ↺</button>
+
+</section>
+
+<div class="footer">
+Made with love ♡ by Gadho, for Chiki
+<br><br>
+୨ৎ &nbsp; A little pink world &nbsp; ୨ৎ
+</div>
+
+</div>
+
+<script>
+function go(number) {
+  document.querySelectorAll('.page').forEach(function(page) {
+    page.classList.remove('active');
+  });
+
+  var target = document.getElementById('p' + number);
+
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+}
+
+function answer(chapter, message) {
+  var box = document.getElementById('r' + chapter);
+
+  var replies = {
+    1: 'A new adventure begins! ♡',
+    2: 'What a beautiful little adventure! 🌷',
+    3: 'And now... the biggest surprise! 💗'
+  };
+
+  box.hidden = false;
+  box.innerHTML = '';
+
+  var text = document.createElement('p');
+  text.textContent = message + ' ' + replies[chapter];
+  box.appendChild(text);
+
+  var btn = document.createElement('button');
+  btn.className = 'btn';
+  btn.textContent = 'Continue ♡';
+  btn.onclick = function() {
+    go(chapter === 1 ? 7 : chapter === 2 ? 8 : 9);
+  };
+  box.appendChild(btn);
+}
+
+function createHearts() {
+  var container = document.getElementById('floatingHearts');
+
+  for (var i = 0; i < 14; i++) {
+    var heart = document.createElement('div');
+    heart.className = 'floating';
+    heart.textContent = i % 2 ? '♡' : '♥';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDelay = Math.random() * 8 + 's';
+    heart.style.animationDuration = (7 + Math.random() * 7) + 's';
+    heart.style.fontSize = (15 + Math.random() * 20) + 'px';
+    heart.style.color = '#e68eac';
+    container.appendChild(heart);
+  }
+}
+
+createHearts();
+</script>
+
+</body>
+</html>
