@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To Chiki ♡</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+  background: linear-gradient(135deg, #ffe5f0, #fff1f7, #ffd3e6);
+  color: #873d62;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 30px 22px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 25px;
+  box-shadow: 0 10px 35px rgba(200,80,130,0.15);
+  text-align: center;
+}
+
+h1 {
+  color: #e45b9b;
+  font-size: 42px;
+  margin: 20px 0;
+}
+
+h2 {
+  color: #d94f8c;
+  margin: 20px 0;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 15px 0;
+}
+
+.heart {
+  font-size: 35px;
+  animation: beat 1.3s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.2); }
+}
+
+button {
+  background: #f48bb9;
+  color: white;
+  border: none;
+  padding: 13px 23px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 9px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #e45b9b;
+  transform: scale(1.04);
+}
+
+.page {
+  display: none;
+  animation: appear 0.6s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.photo {
+  width: 85%;
+  max-width: 330px;
+  height: 370px;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 6px solid #ffe0ed;
+  margin: 20px auto;
+  display: block;
+}
+
+.message {
+  background: #fff0f6;
+  padding: 22px;
+  border-radius: 20px;
+  margin: 20px 0;
+  line-height: 1.8;
+}
+
+.choice {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 12px auto;
+  background: #ffe0ed;
+  color: #a34070;
+}
+
+#storyReply {
+  min-height: 55px;
+  font-weight: bold;
+  color: #cf4d88;
+}
+
+.small {
+  font-size: 13px;
+  color: #bd7598;
+}
+
+footer {
+  margin-top: 25px;
+  font-size: 13px;
+  color: #c17b9e;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- PAGE 1: WELCOME -->
+
+<section class="page active" id="page1">
+
+<div class="heart">💗</div>
+
+<h1>To CHIKI</h1>
+
+<p style="font-size:20px;">
+From Gadho, who wants to say something to Chiki...
+</p>
+
+<p>
+Hey Chiki! 🌷<br>
+I made a little something for you.
+</p>
+
+<p>
+It's not something very big, but I hope it makes you smile.
+</p>
+
+<button onclick="showPage('page2')">
+Open your surprise 💌
+</button>
+
+</section>
+
+
+<!-- PAGE 2: ABOUT HER -->
+
+<section class="page" id="page2">
+
+<h1>A little something about you 🌸</h1>
+
+<div class="message">
+
+<p>
+Chiki, honestly, you're such a cute person.
+I really like your personality and the way you are.
+</p>
+
+<p>
+And one thing I especially like is your immature side.
+The silly things you do, your little childish moments
+and the way you make things fun — I genuinely find
+those things adorable.
+</p>
+
+<p>
+You don't always have to be mature or serious.
+I like that playful side of yours too.
+It's one of the things that makes you special.
+</p>
+
+<p>
+I just wanted you to know that you're appreciated
+more than you probably realise. 💗
+</p>
+
+</div>
+
+<button onclick="showPage('page3')">
+There's more... 🎀
+</button>
+
+</section>
+
+
+<!-- PAGE 3: HER PHOTO -->
+
+<section class="page" id="page3">
+
+<h1>My favourite Chiki ♡</h1>
+
+<p>
+Here's a little space dedicated to you.
+</p>
+
+<img
+src="chiki.jpg"
+alt="A picture of Chiki"
+class="photo"
+>
+
+<p
